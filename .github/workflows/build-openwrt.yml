@@ -25,6 +25,7 @@ env:
   REPO_URL: https://github.com/Lienol/openwrt
   REPO_BRANCH: dev-19.07
   CONFIG_FILE: .config
+  FEEDS_CONF: feeds.conf.youKuL1  
   DIY_SH: diy.sh
   FREE_UP_DISK: false
   SSH_ACTIONS: true
@@ -69,6 +70,12 @@ jobs:
         cd openwrt
         echo -e "\nsrc-git extraPackages https://github.com/hoticebeijing/openwrt-packages.git" >> feeds.conf.default
         echo -e "\nsrc-git lienolop  https://github.com/Lienol/lean-lede.git" >> feeds.conf.default
+
+    - name: Clone Feeds.conf.youKuL1
+      run: |
+        [ -e files ] && mv files openwrt/files
+        [ -e $FEEDS_CONF ] && mv $CONFIG_FILE openwrt/.config
+    
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
@@ -85,7 +92,7 @@ jobs:
         make defconfig
 
     - name: SSH connection to Actions
-      uses: hoticebeijing/debugger-action@master
+      uses: P3TERX/debugger-action@master
       if: env.SSH_ACTIONS == 'true'
 
     - name: Download package
