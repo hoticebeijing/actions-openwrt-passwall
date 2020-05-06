@@ -66,6 +66,9 @@ jobs:
     
     - name: Insert passwall feeds
       run: cd openwrt && echo -e "\nsrc-git extraPackages https://github.com/hoticebeijing/openwrt-packages.git" >> feeds.conf.default
+    
+    - name: Insert Lienol Lede  feeds
+      run: cd openwrt && echo -e "\nsrc-git lienol https://github.com/Lienol/openwrt-package" >> feeds.conf.default   
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
