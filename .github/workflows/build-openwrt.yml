@@ -25,7 +25,7 @@ env:
   REPO_URL: https://github.com/Lienol/openwrt
   REPO_BRANCH: dev-19.07
   CONFIG_FILE: .config
-  FEEDS_CONF: feeds.conf.youKuL1  
+  FEEDS_CONF: x86-64.config	  
   DIY_SH: diy.sh
   FREE_UP_DISK: false
   SSH_ACTIONS: true
