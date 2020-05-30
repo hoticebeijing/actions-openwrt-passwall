@@ -15,7 +15,7 @@ on:
     branches:
       - dev-19.07
     paths:
-      - '.config'
+      - 'x86-64.config'
 #  schedule:
 #    - cron: 0 8 * * 5
   watch:
